@@ -44,7 +44,7 @@ const SignupPage = () => {
             value={signupCredentials.password}
           />
         </div>
-        <button className="border p-1 border-black w-full">
+        <button className="border p-1 font-medium border-black w-full">
           Sign Up
         </button>
       </div>
