@@ -1,15 +1,19 @@
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+import SharedLayout from "./components/SharedLayout";
+import HomePage from "./pages/Homepage";
 function App() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-2xl font-medium">
-          Hello World
-        </h1>
-        <h2 className="text-lg">
-          This is where the magic happens!
-        </h2>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
