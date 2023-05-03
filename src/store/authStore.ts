@@ -1,4 +1,4 @@
-import { createStore } from "zustand";
+import { create } from "zustand";
 
 type AuthStoreType = {
   authStatus: boolean;
@@ -7,7 +7,7 @@ type AuthStoreType = {
   removeAuth: () => void;
 };
 
-const authStore = createStore<AuthStoreType>((set) => ({
+const useAuthStore = create<AuthStoreType>((set) => ({
   authStatus: false,
   token: null,
   addAuth: (token) =>
@@ -15,4 +15,4 @@ const authStore = createStore<AuthStoreType>((set) => ({
   removeAuth: () => set({ authStatus: false, token: null }),
 }));
 
-export default authStore;
+export default useAuthStore;
