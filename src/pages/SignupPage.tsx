@@ -1,6 +1,12 @@
 import { useState } from "react";
+import supabase from "../lib/supabase";
+import useAuthStore from "../store/authStore";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+  const { addAuth } = useAuthStore((store) => store);
+  const navigate = useNavigate();
+
   const [signupCredentials, setSignupCredentials] =
     useState({
       email: "",
@@ -16,6 +22,14 @@ const SignupPage = () => {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const signupUser = async () => {
+    const { data: userData } = await supabase.auth.signUp(
+      signupCredentials
+    );
+    addAuth(userData.user?.id as string);
+    navigate("/");
   };
 
   return (
@@ -44,7 +58,10 @@ const SignupPage = () => {
             value={signupCredentials.password}
           />
         </div>
-        <button className="border p-1 font-medium border-black w-full">
+        <button
+          className="border p-1 font-medium border-black w-full"
+          onClick={signupUser}
+        >
           Sign Up
         </button>
       </div>
