@@ -13,7 +13,7 @@ const TodoInput = () => {
           e: React.ChangeEvent<HTMLInputElement>
         ) => setInput({ text: e.target.value })}
       />
-      <button className="w-[20%] text-sm font-medium border-l px-1">
+      <button className="w-[20%] text-xs font-medium border-l px-1">
         ADD ITEM
       </button>
     </div>

@@ -8,7 +8,7 @@ type AuthStoreType = {
 };
 
 const useAuthStore = create<AuthStoreType>((set) => ({
-  authStatus: false,
+  authStatus: true,
   token: null,
   addAuth: (token) =>
     set({ authStatus: true, token: token }),

@@ -8,10 +8,12 @@ const TodoList = () => {
         {[1, 2, 3, 4, 5].map((item) => (
           <li className="border w-full flex items-center px-4 justify-between min-h-[50px]">
             <div>{item}</div>
-            <div className="flex gap-5 items-center text-sm">
+            <div className="flex gap-5 items-center">
               <div className="text-xs">STATUS</div>
-              <button className="font-medium">EDIT</button>
-              <button className="font-medium">
+              <button className="text-xs font-medium">
+                EDIT
+              </button>
+              <button className="text-xs font-medium">
                 DELETE
               </button>
             </div>
